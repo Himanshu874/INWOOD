@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardActionArea, CardMedia, Container, Divider, Drawer, Grid, Hidden, InputAdornment, IconButton, TextField, Typography } from '@mui/material'
+import { Box, Button, Card, CardActionArea, CardMedia, Container, Drawer, Grid, Hidden, InputAdornment, IconButton, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -7,6 +7,7 @@ import NorthIcon from '@mui/icons-material/North';
 import SouthIcon from '@mui/icons-material/South';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import { Scrollbar } from 'react-scrollbars-custom';
 
 const Cate = () => {
     const theme = useTheme();
@@ -24,7 +25,7 @@ const Cate = () => {
     const drawer = [
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', color: '#07484A' }}>
             <Box>
-                <Typography variant='subtitle1' sx={{ mt: 3 }}>
+                <Typography variant='subtitle1' sx={{ mt: 3, }}>
                     BedRoom
                 </Typography>
                 <Typography variant='subtitle1' sx={{ mt: 3 }}>
@@ -120,33 +121,37 @@ const Cate = () => {
             <Typography
                 sx={{
                     display: 'flex',
-                    mt: 3,
-                    mb: 3,
+                    mt: 10,
+                    mb: 10,
                     justifyContent: 'center',
                     color: '#07484A',
-                    fontSize: { xs: '2rem', lg: '3rem' }
+                    fontSize: { xs: '2rem', lg: '3rem' },
+                    fontFamily:'Playfair Display',
+                    fontWeight: 700
                 }}
             >
                 Explore By Category
             </Typography>
 
-            <Container maxWidth={'xl'}>
+            <Container maxWidth={'lg'}>
 
                 <Grid container spacing={2}>
 
                     {/* left */}
                     <Grid item xs={12} sm={12} md={12} lg={3} >
 
-                        <Box>
-                            <TextField
 
+                        {/* for lg */}
+                        <Hidden lgDown>
+
+                            <TextField
                                 id="outlined-basic"
                                 variant="outlined"
                                 placeholder='Search'
-                                size='small'
+                                size='large'
                                 sx={{
                                     position: { md: 'center', sm: 'center', xs: 'center' },
-                                    backgroundColor: '#F0F0F0',
+                                    backgroundColor: '#F0F0F0'
                                 }}
                                 InputProps={{
                                     startAdornment: (
@@ -156,21 +161,17 @@ const Cate = () => {
                                     ),
                                 }}
                             />
-                        </Box>
 
-                        {/* for lg */}
-                        <Hidden lgDown>
-                          
                             <Box sx={{
-                                mt: 2,
+                                mt: 6,
                                 width: 200,
-                                height: 320,
+                                height: 500,
                                 display: 'flex',
                                 flexDirection: 'column',
                                 overflow: 'auto',
                                 "&::-webkit-scrollbar": {
-                                    height: '10px',
-                                    width: "10px"
+                            
+                                    width: "3px"
                                 },
                                 "&::-webkit-scrollbar-track": {
                                     backgroundColor: '#07484A',
@@ -184,30 +185,28 @@ const Cate = () => {
                                         <Box sx={{
                                             display: 'flex'
                                         }}>
-                                            <Box sx={{
-                                                width: 50
-                                            }}>
                                                 <Typography variant='subtitle1' component='div'
                                                     sx={{
                                                         color: '#07484A',
-                                                        fontSize: 20
+                                                        fontSize: 20,
+                                                        cursor: 'pointer',
+                                                        height: 90
                                                     }}>
                                                     {card.name}
                                                 </Typography>
-                                            </Box>
+                                    
                                         </Box>
                                     ))
                                 }
-
-
                             </Box>
+
                             <Box
                                 sx={{
                                     display: 'flex',
                                     flexDirection: 'column',
                                     gap: '20px',
                                     ml: 23,
-                                    mt: 2
+                                    mt: 2,
                                 }}
                             >
                                 <Box size="small"
@@ -219,7 +218,8 @@ const Cate = () => {
                                         color: '#07484A',
                                         display: 'flex',
                                         justifyContent: 'center',
-                                        alignItems: 'center'
+                                        alignItems: 'center',
+                                        cursor: 'pointer'
                                     }}
                                 >
                                     <NorthIcon fontSize='small' />
@@ -233,22 +233,66 @@ const Cate = () => {
                                         color: '#07484A',
                                         display: 'flex',
                                         justifyContent: 'center',
-                                        alignItems: 'center'
+                                        alignItems: 'center',
+                                        cursor: 'pointer'
                                     }}
                                 >
                                     <SouthIcon fontSize='small' />
                                 </Box>
+                            </Box>
+                            <Box>
+ 
+ 
+                                <Button variant='contained' endIcon={<ArrowForwardIcon />}
+                                    sx={{
+
+                                        bgcolor: '#70908B',
+                                        textTransform: 'capitalize',
+                                        mt: 3,
+                                        display: { xs: 'none', sm: 'flex', md: 'flex', lg: 'flex' },
+                                        height:'4rem',
+                                        width:'13rem',
+                                        fontWeight: 700,
+                                        '&:hover': {
+                                            bgcolor: '#70908B',
+                                        },
+                                    }}>
+                                    All Categories
+                                </Button>
 
                             </Box>
 
                         </Hidden>
-
 
 
                         {/* for laptop */}
                         {
                             mobile !== true && desktop !== true && tablet !== true &&
                             < Box >
+ 
+                                <Box sx={{
+                                    display: 'flex',
+                                    justifyContent: 'center'
+                                }}>
+                                    <TextField
+                                        id="outlined-basic"
+                                        variant="outlined"
+                                        placeholder='Search'
+                                        size='small'
+                                        sx={{
+                                            position: { md: 'center', sm: 'center', xs: 'center' },
+                                            backgroundColor: '#F0F0F0',
+                                        }}
+                                        InputProps={{
+                                            startAdornment: (
+                                                <InputAdornment position="start">
+                                                    <SearchIcon sx={{ color: '#07484A' }} />
+                                                </InputAdornment>
+                                            ),
+                                        }}
+                                    />
+                                </Box>
+
                                 <Box
                                     sx={{
                                         display: 'flex',
@@ -292,16 +336,60 @@ const Cate = () => {
                                     </Typography>
                                 </Box>
 
+                                <Box sx={{
+                                    display: 'flex',
+                                    justifyContent: 'center'
+                                }}>
+                                    <Box sx={{
+                                        display: { xs: 'none', sm: 'block', md: 'block', lg: 'block' },
+                                    }}>
+
+                                        <Button variant='contained' endIcon={<ArrowForwardIcon />}
+                                            sx={{
+
+                                                bgcolor: '#70908B',
+                                                textTransform: 'capitalize',
+                                                mt: 3,
+                                                '&:hover': {
+                                                    bgcolor: '#70908B',
+                                                },
+                                            }}>
+                                            All Categories
+                                        </Button>
+                                    </Box>
+                                </Box>
                             </Box>
                         }
 
 
                         {/* for med */}
-
-
                         {
                             mobile !== true && desktop !== true && laptop !== true &&
                             <Box>
+                                <Box sx={{
+                                    display: 'flex',
+                                    justifyContent: 'center'
+                                }}>
+                                    <TextField
+                                        id="outlined-basic"
+                                        variant="outlined"
+                                        placeholder='Search'
+                                        size='small'
+                                        sx={{
+                                            position: { md: 'center', sm: 'center', xs: 'center' },
+                                            backgroundColor: '#F0F0F0',
+                                        }}
+                                        InputProps={{
+                                            startAdornment: (
+                                                <InputAdornment position="start">
+                                                    <SearchIcon sx={{ color: '#07484A' }} />
+                                                </InputAdornment>
+                                            ),
+                                        }}
+                                    />
+                                </Box>
+
+
                                 <Box
                                     sx={{
                                         display: 'flex',
@@ -344,60 +432,97 @@ const Cate = () => {
                                         Living Space
                                     </Typography>
                                 </Box>
+
+                                <Box sx={{
+                                    display: 'flex',
+                                    justifyContent: 'center'
+                                }}>
+                                    <Box sx={{
+                                        display: { xs: 'none', sm: 'block', md: 'block', lg: 'block' },
+                                    }}>
+
+                                        <Button variant='contained' endIcon={<ArrowForwardIcon />}
+                                            sx={{
+
+                                                bgcolor: '#70908B',
+                                                textTransform: 'capitalize',
+                                                mt: 3,
+                                                '&:hover': {
+                                                    bgcolor: '#70908B',
+                                                },
+                                            }}>
+                                            All Categories
+                                        </Button>
+                                    </Box>
+                                </Box>
                             </Box>
                         }
 
-
-
                         {/*For small  */}
-                        <Hidden xs>
-                            <IconButton
-                                aria-label='open drawer'
-                                edge='start'
-                                sx={{
-                                    mr: 2,
-                                    display: { xs: "block", sm: "none", md: "none", lg: "none", xl: "none" },
-                                }}
-                                onClick={handleDrawerToggle}
-                            >
-                                <MenuIcon sx={{ color: '#07484A' }} />
-                            </IconButton>
+                        {
+                            desktop !== true && laptop !== true && tablet !== true &&
+                            <Box>
 
-                            <Box component='nav'>
-                                <Drawer variant='temporary'
-                                    open={mobileOpen}
-                                    onClose={handleDrawerToggle}
-                                    sx={{
-                                        display: { xs: 'block', sm: 'none' },
-                                        "& .MuiDrawer-paper": {
-                                            boxSizing: "border-box",
-                                            width: "240px",
-                                        }
-                                    }}
-                                >
-                                    {drawer}
-                                </Drawer>
+                                <Box sx={{
+                                    display: 'flex',
+
+                                    gap: 3
+                                }}>
+
+                                    <TextField
+                                        id="outlined-basic"
+                                        variant="outlined"
+                                        placeholder='Search'
+                                        size='small'
+                                        sx={{
+                                            position: { md: 'center', sm: 'center', xs: 'center' },
+                                            backgroundColor: '#F0F0F0',
+                                        }}
+                                        InputProps={{
+                                            startAdornment: (
+                                                <InputAdornment position="start">
+                                                    <SearchIcon sx={{ color: '#07484A' }} />
+                                                </InputAdornment>
+                                            ),
+                                        }}
+                                    />
+
+                                    <IconButton
+                                        aria-label='open drawer'
+                                        edge='start'
+                                        sx={{
+                                            mr: 2,
+                                            display: { xs: "block", sm: "none", md: "none", lg: "none", xl: "none" },
+                                        }}
+                                        onClick={handleDrawerToggle}
+                                    >
+                                        <MenuIcon sx={{ color: '#07484A' }} />
+                                    </IconButton>
+                                </Box>
+
+                                <Box component='nav'>
+                                    <Drawer variant='temporary'
+                                        open={mobileOpen}
+                                        onClose={handleDrawerToggle}
+                                        sx={{
+                                            display: { xs: 'block', sm: 'none' },
+                                            "& .MuiDrawer-paper": {
+                                                boxSizing: "border-box",
+                                                width: "240px",
+                                            }
+                                        }}
+                                    >
+                                        {drawer}
+                                    </Drawer>
+                                </Box>
                             </Box>
-                        </Hidden>
-
-
-
-                        <Button variant='contained' endIcon={<ArrowForwardIcon />}
-                            sx={{
-                                bgcolor: '#70908B',
-                                textTransform: 'capitalize',
-                                mt: 3,
-                                position: { md: 'center', sm: 'center', xs: 'center' },
-
-                            }}>
-                            All Categories
-                        </Button>
+                        }
                     </Grid>
 
 
                     {/* Right */}
                     <Grid item xs={12} sm={12} md={12} lg={9}>
-                        <Grid container spacing={2}>
+                        <Grid container spacing={2}> 
                             {
                                 categories.map((card) => (
 
@@ -432,18 +557,23 @@ const Cate = () => {
                                                 <Typography variant='h4'
                                                     sx={{
                                                         color: 'white',
-                                                        mb: 2
+                                                        mb: 2,
+                                                        fontFamily:'Playfair Display',
+                                                        fontWeight: 700,
                                                     }}>
                                                     {card.name}
                                                 </Typography>
 
-                                                
+
                                                 <Box>
 
                                                     <Button variant='contained'
                                                         sx={{
                                                             bgcolor: '#70908B',
                                                             textTransform: 'capitalize',
+                                                            '&:hover': {
+                                                                bgcolor: '#70908B',
+                                                            },
                                                         }}>
                                                         Explore
                                                     </Button>

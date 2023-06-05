@@ -2,9 +2,15 @@ import { Box, Button, Card, CardActionArea, CardMedia, Typography } from '@mui/m
 import React from 'react'
 import EastIcon from '@mui/icons-material/East';
 import WestIcon from '@mui/icons-material/West';
-
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 const Creation = () => {
 
+  const theme = useTheme();
+  const mobile = useMediaQuery(theme.breakpoints.only('xs'));
+  const tablet = useMediaQuery(theme.breakpoints.only('sm'))
+  const laptop = useMediaQuery(theme.breakpoints.only('md'));
+  const desktop = useMediaQuery(theme.breakpoints.up('lg'));
 
   const c = [
     {
@@ -31,103 +37,114 @@ const Creation = () => {
     <Box sx={{
       mt: 6,
       display: 'flex',
-
     }}>
-      <Box sx={{
-        bgcolor: '#70908B',
-        display: 'flex',
-        justifyContent: 'center',
-      }}>
-
+      <Box>
         <Box sx={{
-          ml: '4vw',
-          width: { xs: '10rem', md: '15rem', sm: '10rem' },
-          height: { xs: '7rem', md: '10rem', sm: '10rem' }
+          bgcolor: '#70908B',
+          display: 'flex',
+          justifyContent: 'center',
+          mt: {xs: '1rem',md:0, sm:0},
+          borderRadius: '0px 15px 15px 0px'
         }}>
 
-          <Typography
-            sx={{
-              color: '#fff',
-              fontSize: { xs: '2rem', lg: '3rem', md: '3rem' },
-            }}
-          >
-            Our
-          </Typography>
-          <Typography
-            sx={{
-              color: '#fff',
-              fontSize: { xs: '2rem', lg: '3rem', md: '3rem' },
-            }}
-          >
-            Own Creation
-          </Typography>
-          <Typography
-            sx={{
-              color: '#fff',
-            }}
-          >
-            Designed in our studio
-          </Typography>
-
-
           <Box sx={{
-            display: 'flex',
-            gap: 14
+            mt: 8,
+            ml: '8vw',
+            borderRadius: '15px',
+            width: { xs: '9rem', md: '22rem', sm: '15rem' },
+            height: { xs: '18rem', md: '22rem', sm: '20rem' }
           }}>
-            <Typography sx={{
-              color: '#fff',
-              fontWeight: '400',
-              fontSize: '12px',
-              mt: 2
-            }}>
-              More
+            <Typography
+              sx={{
+                color: '#fff',
+                fontSize: { xs: '2rem', lg: '2.5rem', md: '2rem' },
+                fontFamily: 'Playfair Display',
+                fontWeight: 700
+              }}
+            >
+              Our
             </Typography>
-          </Box>
-          <Box sx={{
-            display: {xs:'none' ,sm:'block' , md:'block', lg:''}
-          }}>
+            <Typography
+              sx={{
+                color: '#fff',
+                fontSize: { xs: '2rem', lg: '2.5rem', md: '2rem' },
+                fontFamily: 'Playfair Display',
+                fontWeight: 700
 
+              }}
+            >
+              Own Creation
+            </Typography>
+            <Typography
+              sx={{
+                color: '#fff',
+                fontSize: 20
+              }}
+            >
+              Designed in our studio
+            </Typography>
             <Box sx={{
               display: 'flex',
-              flexDirection: 'row',
-              gap: '20px',
-              p: '0 0 0 5rem',
+              gap: 14,
+              flexDirection: 'row'
             }}>
-              <Box size="small"
-                sx={{
-                  bgcolor: '#E0EFF6',
-                  width: '25px',
-                  height: '25px',
-                  borderRadius: '100%',
-                  color: '#07484A',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}
-              >
-                <WestIcon fontSize='small' />
+              <Typography sx={{
+                color: '#fff',
+                fontWeight: '400',
+                fontSize: 15,
+                mt: 2
+              }}>
+                More
+              </Typography>
+              <Box sx={{
+                display: { xs: 'none', sm: 'block', md: 'block', lg: 'block' }
+              }}>
 
-              </Box>
-              <Box size="small"
-                sx={{
-                  bgcolor: '#F9D9DA',
-                  width: '25px',
-                  height: '25px',
-                  borderRadius: '100%',
-                  color: '#07484A',
+                <Box sx={{
                   display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}
-              >
-                <EastIcon fontSize='small' />
+                  flexDirection: 'row',
+                  gap: '20px',
+                  mt: 2
+                }}>
+                  <Box size="small"
+                    sx={{
+                      bgcolor: '#E0EFF6',
+                      width: '25px',
+                      height: '25px',
+                      borderRadius: '100%',
+                      color: '#07484A',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      cursor: 'pointer'
+
+                    }}
+                  >
+                    <WestIcon fontSize='small' />
+
+                  </Box>
+                  <Box size="small"
+                    sx={{
+                      bgcolor: '#F9D9DA',
+                      width: '25px',
+                      height: '25px',
+                      borderRadius: '100%',
+                      color: '#07484A',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      cursor: 'pointer'
+
+                    }}
+                  >
+                    <EastIcon fontSize='small' />
+                  </Box>
+                </Box>
               </Box>
             </Box>
           </Box>
-
         </Box>
       </Box>
-
 
 
       <Box sx={{
@@ -152,13 +169,14 @@ const Creation = () => {
             <Box sx={{
               display: 'flex',
               marginLeft: 2,
+              cursor:'pointer',
+              position:'relative'
             }}>
-              <Card >
-
-                <CardActionArea>
 
                   <Box >
-                    <img src={card.img} alt="" height={380} width={250} />
+                    <img src={card.img} alt=""
+                      height={'100%'} width={250}
+                    />
                   </Box>
 
                   <Box sx={{
@@ -185,23 +203,24 @@ const Creation = () => {
                           color: 'black',
                           textTransform: 'capitalize',
                           fontSize: 10,
-                          mb: 3
+                          mb: 3,
+                          '&:hover': {
+                            bgcolor: '#70908B',
+                        }, 
                         }}>
                         Explore all Rooms
                       </Button>
                     </Box>
 
                   </Box>
-                </CardActionArea>
-
-              </Card>
-
             </Box>
 
           ))
         }
       </Box>
     </Box>
+
+
   )
 }
 

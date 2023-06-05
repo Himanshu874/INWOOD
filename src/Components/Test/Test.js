@@ -10,10 +10,12 @@ const Test = () => {
             <Typography
                 sx={{
                     textAlign: 'center',
-                    mt: 3,
+                    mt: 6,
                     mb: 1,
                     color: '#07484A',
-                    fontSize: { xs: '2rem', lg: '3rem' }
+                    fontSize: { xs: '2rem', lg: '3rem' },
+                    fontFamily: 'Playfair Display',
+                    fontWeight: 700
                 }}
             >
                 Testimonials
@@ -24,6 +26,7 @@ const Test = () => {
                     textAlign: 'center',
                     mb: 3,
                     color: '#07484A',
+                    fontSize: { md: '25px', sm: '25px', xs: '20px' }
                 }}
             >
                 Over 15,000 happy customers.
@@ -32,7 +35,7 @@ const Test = () => {
 
             <Container maxWidth={'lg'} sx={{ padding: 2, mt: 10 }}>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} sm={4} md={4} lg={2.5}>
+                    <Grid item xs={12} sm={5} md={4} lg={4}>
                         <Box >
                             <Box sx={{
                                 display: 'flex',
@@ -45,75 +48,86 @@ const Test = () => {
 
                             </Box>
                             <Card>
-                                <CardMedia
+                                <CardMedia sx={{
+                                    height: '20rem',
+                                    width: '100%'
+                                }}
                                     component="img"
-                                    alt="green iguana"
                                     image="/Images/testimg.png"
                                 />
                             </Card>
                         </Box>
                     </Grid>
 
-                    <Grid item xs={12} sm={8} md={8} lg={9.5}>
+                    <Grid item xs={12} sm={7} md={8} lg={8}>
                         <Box>
-                            <Typography variant='subtitle1' sx={{ color: '#07484A', fontSize: 18 }}>
-                                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit fuga debitis autem nihil cum. Nobis temporibus porro enim aperiam repudiandae laudantium voluptatibus, aliquid dolores soluta explicabo quis cupiditate nesciunt aperiam."
-                            </Typography>
 
-                            <Typography variant='subtitle1' sx={{
-                                color: '#07484A', mt: 2, fontSize: 12, fontWeight: 700,
+                            <Box sx={{
+                                ml: 6
                             }}>
-                                Leona Paul
-                            </Typography>
+                                <Typography variant='subtitle1' sx={{ color: '#07484A', fontSize: 25 }}>
+                                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit fuga debitis autem nihil cum. Nobis temporibus porro enim aperiam repudiandae laudantium voluptatibus, aliquid dolores soluta explicabo quis cupiditate nesciunt aperiam."
+                                </Typography>
 
-                            <Typography variant='subtitle1' sx={{ color: '#07484A', fontSize: 12, fontWeight: 400 }}>
-                                CEO of Floatcom
-                            </Typography>
-                        </Box>
+                                <Typography variant='subtitle1' sx={{
+                                    color: '#07484A', mt: 2, fontSize: 18, fontWeight: 700,
+                                }}>
+                                    Leona Paul
+                                </Typography>
 
-                        <Box sx={{
-                            display: { lg: 'block', md: 'none', sm: 'none', xs: 'none' },
-                            ml: '60rem'
-                        }}>
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    gap: '20px'
-                                }}
-                            >
-                                <Box size="small"
-                                    sx={{
-                                        bgcolor: '#E0EFF6',
-                                        width: '25px',
-                                        height: '25px',
-                                        borderRadius: '100%',
-                                        color: '#07484A',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center'
-                                    }}
-                                >
-                                    <EastIcon fontSize='small' />
-                                </Box>
-                                <Box size="small"
-                                    sx={{
-                                        bgcolor: '#F9D9DA',
-                                        width: '25px',
-                                        height: '25px',
-                                        borderRadius: '100%',
-                                        color: '#07484A',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center'
-                                    }}
-                                >
-                                    <WestIcon fontSize='small' />
-                                </Box>
-
+                                <Typography variant='subtitle1' sx={{ color: '#07484A', fontSize: 18, fontWeight: 100 }}>
+                                    CEO of Floatcom
+                                </Typography>
                             </Box>
-                        </Box>
 
+                            <Box sx={{
+                                display: { lg: 'block', md: 'none', sm: 'none', xs: 'none' },
+                                ml: '50rem',
+                            }}>
+                                <Box
+                                    sx={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: '20px'
+                                    }}
+                                >
+                                    <Box size="small"
+                                        sx={{
+                                            bgcolor: '#E0EFF6',
+                                            width: '25px',
+                                            height: '25px',
+                                            borderRadius: '100%',
+                                            color: '#07484A',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            cursor: 'pointer'
+
+                                        }}
+                                    >
+                                        <EastIcon fontSize='small' />
+                                    </Box>
+                                    <Box size="small"
+                                        sx={{
+                                            bgcolor: '#F9D9DA',
+                                            width: '25px',
+                                            height: '25px',
+                                            borderRadius: '100%',
+                                            color: '#07484A',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            cursor: 'pointer'
+
+                                        }}
+                                    >
+                                        <WestIcon fontSize='small' />
+                                    </Box>
+
+                                </Box>
+                            </Box>
+
+                        </Box>
 
                     </Grid>
                 </Grid>
@@ -128,16 +142,7 @@ const Test = () => {
                     width: '70vw',
                     height: '0.1vh',
                 }} />
-                {/* <Button variant='text' size="small" endIcon={<ArrowForwardIcon />}
-                    sx={{
-            
-                        color: '#70908B',
-                        textTransform: 'capitalize',
-                        fontSize: '14px',
-                        
-                    }}>
-                    Explore All Items
-                </Button> */}
+
                 <Box sx={{
                     display: { xs: 'none', sm: 'block', md: 'block', lg: 'block' },
                     ml: 2,

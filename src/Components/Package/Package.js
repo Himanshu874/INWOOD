@@ -60,7 +60,9 @@ const Package = () => {
           mb: 3,
           justifyContent: 'center',
           color: '#07484A',
-          fontSize: { xs: '2rem', lg: '3rem' }
+          fontSize: { xs: '2rem', lg: '3rem' },
+          fontFamily: 'Playfair Display',
+          fontWeight: 700
         }}
       >
         Special Package
@@ -91,36 +93,45 @@ const Package = () => {
                   sx={{
                     color: '#07484A',
                     mt: 2,
+                    fontSize: 30
                   }}>
                   Larkin Wood Full Set
                 </Typography>
                 <Box sx={{
-                  mt: 2
+                  mt: 2,
+                  display:'flex',
+                  gap: 1
                 }}>
                   <img src="/Images/star.png" alt="" height='30vh' />
                   <img src="/Images/star.png" alt="" height='30vh' />
                   <img src="/Images/star.png" alt="" height='30vh' />
                   <img src="/Images/star.png" alt="" height='30vh' />
                   <img src="/Images/star.png" alt="" height='30vh' />
-
                 </Box>
                 <Typography
                   sx={{
                     color: '#07484A',
                     fontWeight: '700',
-                    fontSize: '15px',
+                    fontSize: 25,
                     mt: 2
                   }}>
                   $729.99
                 </Typography>
               </Box>
               <Box sx={{
-                ml: 38
+                ml:18
               }}>
                 <Button variant='contained' endIcon={<ShoppingCartIcon />}
                   sx={{
                     bgcolor: '#70908B',
                     textTransform: 'capitalize',
+                    mt: 3,
+                    height:'3rem',
+                    width:'10rem',
+                    fontWeight:100,
+                    '&:hover': {
+                      bgcolor: '#70908B',
+                  },
                   }}>
                   Add to cart
                 </Button>
@@ -141,49 +152,58 @@ const Package = () => {
                 }}>
                 Description
               </Typography>
-              <Typography variant='subtitle1' component='div'
-                sx={{
-                  color: '#07484A',
-                  mt: 2,
-                  fontSize: 14
-                }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit fuga debitis autem nihil cum. Nobis temporibus porro enim aperiam repudiandae laudantium voluptatibus, obcaecati fugiat. Maiores, amet quaerat. Iusto, ad porro! Rem omnis aliquid dolores soluta explicabo quis cupiditate nesciunt aperiam.
-              </Typography>
+              <Box sx={{
+                width: "40rem"
+              }}>
+                <Typography variant='subtitle1' component='div'
+                  sx={{
+                    color: '#07484A',
+                    mt: 2,
+                    fontSize: 14
+                  }}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit fuga debitis autem nihil cum. Nobis temporibus porro enim aperiam repudiandae laudantium voluptatibus, obcaecati fugiat. Maiores, amet quaerat. Iusto, ad porro! Rem omnis aliquid dolores soluta explicabo quis cupiditate nesciunt aperiam.
+                </Typography>
+                <Box>
+                  <Button variant="text" size="small" endIcon={<KeyboardArrowDownIcon />} sx={{
+                    color: 'black',
+                    textTransform: 'capitalize',
+                    fontWeight: 700
+                  }}>See More</Button>
+                </Box>
+              </Box>
             </Box>
 
-            <Box>
-              <Button variant="text" size="small" endIcon={<KeyboardArrowDownIcon />} sx={{
-                color: 'black',
-                textTransform: 'capitalize',
-              }}>See More</Button>
-            </Box>
 
             <Box sx={{
               display: 'flex',
               gap: 1,
 
-
             }}>
               <Box>
-                <img src="/Images/pack1.png" height={'100vh'} />
+                <img src="/Images/pack1.png" style={{ width: '12rem', height:'8rem'  }}  />
               </Box>
               <Box sx={{
                 display: 'flex',
-                gap: 2,
+                gap: 1,
                 bgcolor: '#E0F6F1',
                 padding: ' 0 3px',
-                width: 400
+                width: 300,
+                height: '8rem'
               }}>
-                <Box>
+                <Box sx={{
+                    width:'15rem'
+                }}>
                   <Typography variant='subtitle1' component='div'
                     sx={{
                       color: '#07484A',
                       mt: 2,
+                      fontFamily:'Playfair Display',
+                      fontSize: 14
                     }}>
                     Living Room Family Set
                   </Typography>
                   <Box sx={{
-                    mt: 2,
+                    mt: 1,
 
                   }}>
                     <img src="/Images/star.png" alt="" height='10vh' />
@@ -196,8 +216,8 @@ const Package = () => {
                   <Typography variant='subtitle1' component='div'
                     sx={{
                       color: '#07484A',
-                      mt: 2,
-                      fontSize: 7
+                      fontSize: 14,
+                      mt: 2
                     }}>
                     See Details
                   </Typography>
@@ -205,18 +225,21 @@ const Package = () => {
                 <Box sx={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: 3.5,
-                  ml: 15
+                  gap: 3.5
                 }}>
                   <Typography variant='subtitle1' component='div'
                     sx={{
                       color: '#07484A',
                       mt: 2,
+                      fontSize: 20,
+                      fontWeight: 700
                     }}>
                     $229.99
                   </Typography>
 
-                  <Box>
+                  <Box sx={{
+                    ml: 5
+                  }}>
                     <img src="/Images/Zoom.png" alt="" />
                   </Box>
                 </Box>
@@ -225,14 +248,15 @@ const Package = () => {
             </Box>
 
             <Box sx={{
+              pr:2,
+              mt: 2,
               width: 500,
               height: 200,
               display: 'flex',
               flexDirection: 'column',
               overflow: 'auto',
               "&::-webkit-scrollbar": {
-                height: '10px',
-                width: "10px"
+                width: "3px"
               },
               "&::-webkit-scrollbar-track": {
                 backgroundColor: '#07484A',
@@ -245,19 +269,23 @@ const Package = () => {
               {
                 pack.map((card) => (
                   <Box sx={{
-                    display: 'flex'
+                    display: 'flex',
+                    cursor: 'pointer',
+                    gap: 2
                   }}>
                     <Box>
-                      <img src={card.img} alt="" style={{ width: '90%', height: 90 }} />
+                      <img src={card.img} alt="" style={{ width: '11rem', height:'7rem'  }} />
                     </Box>
                     <Box sx={{
                       display: 'flex',
+              
                     }}>
                       <Box>
                         <Typography variant='subtitle1' component='div'
                           sx={{
                             color: '#07484A',
-                            fontSize: 11
+                            fontSize: 14,
+                            fontFamily:'Playfair Display'
                           }}>
                           {card.name}
                         </Typography>
@@ -272,11 +300,10 @@ const Package = () => {
                         <Typography variant='subtitle1' component='div'
                           sx={{
                             color: '#07484A',
-                            fontSize: 7
+                            fontSize: 12
                           }}>
                           {card.des}
                         </Typography>
-
                         <Box>
                           <Button variant="text" size="small" endIcon={<KeyboardArrowDownIcon />} sx={{
                             color: 'black',
@@ -288,9 +315,10 @@ const Package = () => {
                         <Typography variant='subtitle1' component='div'
                           sx={{
                             color: '#07484A',
-                            fontSize: 10
+                            fontSize: 20,
+                            fontWeight: 600
                           }}>
-                          $ {card.price}
+                          ${card.price}
                         </Typography>
 
                       </Box>
@@ -301,13 +329,13 @@ const Package = () => {
               }
             </Box>
 
-            
+
             <Box
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '20px',
-                ml: 60,
+                ml: 61,
                 mt: 2
               }}
             >
@@ -320,7 +348,9 @@ const Package = () => {
                   color: '#07484A',
                   display: 'flex',
                   justifyContent: 'center',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  cursor: 'pointer'
+
                 }}
               >
                 <NorthIcon fontSize='small' />
@@ -334,7 +364,9 @@ const Package = () => {
                   color: '#07484A',
                   display: 'flex',
                   justifyContent: 'center',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  cursor: 'pointer'
+
                 }}
               >
                 <SouthIcon fontSize='small' />
@@ -398,6 +430,9 @@ const Package = () => {
                   sx={{
                     bgcolor: '#70908B',
                     textTransform: 'capitalize',
+                    '&:hover': {
+                      bgcolor: '#70908B',
+                  },
                   }}>
                   Add to cart
                 </Button>
@@ -421,7 +456,7 @@ const Package = () => {
               </Box>
             </Box>
           </Box>
-          
+
           <Box>
             <Box sx={{
               mt: 1,
@@ -553,6 +588,9 @@ const Package = () => {
                   sx={{
                     bgcolor: '#70908B',
                     textTransform: 'capitalize',
+                    '&:hover': {
+                      bgcolor: '#70908B',
+                  },
                   }}>
                   Add to cart
                 </Button>
@@ -704,7 +742,9 @@ const Package = () => {
                 bgcolor: '#70908B',
                 textTransform: 'capitalize',
                 mt: 2,
-
+                '&:hover': {
+                  bgcolor: '#70908B',
+              },
               }}>
               Add to cart
             </Button>

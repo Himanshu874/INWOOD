@@ -13,10 +13,10 @@ import Package from "./Components/Package/Package.js";
 
 
 function App() {
-  return (
+  return ( 
     <div >
       <BrowserRouter>
-        <Header />
+        <Header /> 
         <Home />
         <Cate />
         <Product />

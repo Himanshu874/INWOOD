@@ -3,7 +3,7 @@ import React from 'react'
 import EastIcon from '@mui/icons-material/East';
 import WestIcon from '@mui/icons-material/West';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { SwiperSlide, Swiper } from 'swiper/react'
+
 
 const Product = () => {
 
@@ -65,56 +65,60 @@ const Product = () => {
 
 
   return (
-    <Box 
-      sx={{ 
+    <Box
+      sx={{
         background: "url(/Images/product_bg.png)",
-        backgroundRepeat: 'no-repeat', 
+        backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
         width: '100%',
-        height: 600,
+        height: 900,
 
       }}>
       <Typography
         sx={{
           display: 'flex',
-          mt: 3,
-          mb: 3,
+          mt: 10,
+          mb: 10,
           justifyContent: 'center',
           color: '#07484A',
           fontSize: { xs: '2rem', lg: '3rem' },
+          fontFamily: 'Playfair Display',
+          fontWeight: 700
         }}
       >
         Popular Products
       </Typography>
 
- 
+
       <Box sx={{
         display: 'flex',
-        overflow: 'auto',
-        
-        ml: {lg:15,sm:15,md:15,xs:0},
+        overflow: 'auto',pb:2,
+        ml: { lg: 15, sm: 15, md: 15, xs: 0 },
         "&::-webkit-scrollbar": {
-          height: '10px',
-          width: "30px"
+          height: '5px',
+          // border: '3px',
         },
         "&::-webkit-scrollbar-track": {
           backgroundColor: '#07484A',
+         
         },
+     
         "&::-webkit-scrollbar-thumb": {
           background: '#70908B',
-          height: '9rem',
-          // borderLeft: '7px solid white',
-          // borderRight:' 7px solid white'
+          // border: '0.5rem solid transparent', 
+          // backgroundClip: 'content-box'
+          // borderRadius: '5px',
+          // borderColor: 'red',
+        },
         
-        }
       }}>
         {
           pro.map((card) => (
             <Box sx={{
               display: 'flex',
               justifyContent: 'space-between',
-              marginLeft: 2,
-              width:'100%'
+              marginLeft: 4,
+              width: '100%'
             }}>
               <Card sx={{
                 backgroundColor: card.bgColor,
@@ -122,7 +126,7 @@ const Product = () => {
                 width: '100%',
               }}>
                 <Box sx={{ padding: 6 }}>
-                  <img src={card.img} alt="" height={150} width={150} />
+                  <img src={card.img}  height={200} width={200} />
                 </Box>
                 <Box sx={{ padding: 3 }}>
                   <Typography sx={{ color: '#70908B', fontWeight: '700' }}>{card.name}</Typography>
@@ -132,7 +136,7 @@ const Product = () => {
                       fontWeight: '400',
                       fontSize: '10px',
                       mt: 2
-                    }}> 
+                    }}>
                     {card.property}
                   </Typography>
                   <Typography sx={{ color: '#70908B', fontWeight: '700', mt: 2 }}>${card.price}</Typography>
@@ -144,13 +148,13 @@ const Product = () => {
           ))
         }
       </Box>
-      <Box 
+      <Box
         sx={{
           display: 'flex',
-          justifyContent:"flex-end",
+          justifyContent: "flex-end",
           // mt: '3rem',
           gap: '20px',
-          p:'40px 10px 0px 0px'
+          p: '40px 10px 0px 0px'
         }}
       >
         <Box size="small"
@@ -162,7 +166,8 @@ const Product = () => {
             color: '#07484A',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            cursor: 'pointer'
           }}
         >
           <WestIcon fontSize='small' />
@@ -177,7 +182,9 @@ const Product = () => {
             color: '#07484A',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            cursor: 'pointer'
+
           }}
         >
           <EastIcon fontSize='small' />
@@ -189,20 +196,25 @@ const Product = () => {
       <Box sx={{
         display: 'flex',
         justifyContent: 'center',
-  
+
       }}>
         <Button variant='contained' endIcon={<ArrowForwardIcon />}
           sx={{
             bgcolor: '#70908B',
             textTransform: 'capitalize',
             mt: 3,
-            
+            height: '4rem',
+            width: '13rem',
+            fontWeight: 700,
+            '&:hover': {
+              bgcolor: '#70908B',
+          },
           }}>
           Explore All Items
         </Button>
       </Box>
 
-    </Box>
+    </Box >
   )
 }
 
